@@ -26,7 +26,7 @@ This application is composed of 4 main flows:
 3. Matches (Matches)
 4. Leaderboards
 
-## Flow 1: Teams (Times)
+## Flow 1: Teams 
 
 ### 1.1 - Created the `/teams` endpoint in the backend so that it can return all teams 
 
@@ -62,7 +62,7 @@ This application is composed of 4 main flows:
 ```
 
 
-## Flow 2: Users and Login (Users and Access Credentials)
+## Flow 2: Users and Login 
 
 - The route used must be (`/login`);
 
