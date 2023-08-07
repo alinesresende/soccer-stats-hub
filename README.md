@@ -28,9 +28,9 @@ This application is composed of 4 main flows:
 
 ## Flow 1: Teams (Times)
 
-### 1.1 - Build the `/teams` endpoint in the backend so that it can return all teams correctly
+### 1.1 - Created the `/teams` endpoint in the backend so that it can return all teams 
 
-  - It must be a `GET` route with a response with status `200` and a `json` containing the return in the following model:
+  - It should be a `GET` route with a response with status `200` and a `json` containing the return in the following model:
 
 ```json
 [
@@ -46,14 +46,13 @@ This application is composed of 4 main flows:
     "id": 3,
     "teamName": "Botafogo"
   },
-  ...
 ]
 ```
 
 
-### 1.2 - Build the `/teams/:id` endpoint in the backend so that it can return data from a specific team
+### 1.2 - Created the `/teams/:id` endpoint in the backend so that it can return data from a specific team
 
-  - It must be a `GET` route with a response with status `200` and a `json` containing the return in the following model:
+  - It should be a `GET` route with a response with status `200` and a `json` containing the return in the following model:
 
 ```json
 {
@@ -81,11 +80,11 @@ This application is composed of 4 main flows:
   ```
 
 
-### 2.1 - Develop the `/login` endpoint on the backend so that it allows access with valid data on the frontend
+### 2.1 - Created `/login` endpoint on the backend so that it allows access with valid data on the frontend
 
   - The route must be of type `POST`;
 
-  - The evaluator will check if it is possible to login with correct data and that, after access, it will be redirected to the game screen.
+  - It is possible to login with correct data and that, after access, it will be redirected to the game screen.
 
   - The `/login` endpoint on the backend must not allow access without informing an email on the frontend
 
@@ -95,7 +94,7 @@ This application is composed of 4 main flows:
 
     ```json
     {
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NTI3MTg5fQ.XS_9AA82iNoiVaASi0NtJpqOQ_gHSHhxrpIdigiT-fc" // Aqui deve ser o token gerado pelo backend.
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NTI3MTg5fQ.XS_9AA82iNoiVaASi0NtJpqOQ_gHSHhxrpIdigiT-fc" 
     }
     ```
 
@@ -111,7 +110,7 @@ This application is composed of 4 main flows:
     { "message": "All fields must be filled" }
     ```
 
-### 2.3 - Build the `/login` endpoint on the backend so that it doesn't allow access with an unregistered email or incorrect password on the frontend
+### 2.3 - Created the `/login` endpoint on the backend so that it doesn't allow access with an unregistered email or incorrect password on the frontend
 
 - If the login has the "email" **invalid** or the "password" **invalid**, the result returned will be similar to the one shown below, with a status http `401`:
 
