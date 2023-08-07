@@ -1,5 +1,23 @@
 # Soccer Stats Hub 🚀
 
+
+<details>
+  <summary><strong>🐳 Docker</strong></summary>
+
+  - `git clone git@github.com:alinesresende/soccer-stats-hub`
+
+  - `npm install`
+
+> Run the `app` and `db` services with the command `docker-compose up`.
+
+- These services will start up a container named `frontend` and another named `backend`.
+
+  > Run the `npm run db:reset` command (this command will work only after creating the requested types in the requirement) to create the database, the tables that will be used and populate them.
+
+</details>
+
+</details>
+
 # Challenges
 
 This application is composed of 4 main flows:
