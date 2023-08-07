@@ -120,7 +120,7 @@ This application is composed of 4 main flows:
   - Passwords with valid format, but not registered in the bank;
 
 
-### 2.4 - Created a validation middleware for the `token`, checking if it is valid, and develop the `/login/role` 
+### 2.4 - Created a validation middleware for the `token`
 
   - It must be a `GET` route that receives a `header` with `authorization` parameter, where the token generated at login will be stored;
 
