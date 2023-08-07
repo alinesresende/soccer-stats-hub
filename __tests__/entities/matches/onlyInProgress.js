@@ -1,0 +1,68 @@
+const allMatches = [
+  {
+    id: 41,
+    home_team_id: 'São Paulo',
+    home_team_goals: '2',
+    away_team_id: 'Internacional',
+    away_team_goals: '0',
+    in_progress: 1,
+  },
+  {
+    id: 42,
+    home_team_id: 'Ferroviária',
+    home_team_goals: '1',
+    away_team_id: 'Avaí/Kindermann',
+    away_team_goals: '0',
+    in_progress: 1,
+  },
+  {
+    id: 43,
+    home_team_id: 'Napoli-SC',
+    home_team_goals: '0',
+    away_team_id: 'Minas Brasília',
+    away_team_goals: '0',
+    in_progress: 1,
+  },
+  {
+    id: 44,
+    home_team_id: 'Flamengo',
+    home_team_goals: '2',
+    away_team_id: 'São José-SP',
+    away_team_goals: '2',
+    in_progress: 1,
+  },
+  {
+    id: 45,
+    home_team_id: 'Cruzeiro',
+    home_team_goals: '1',
+    away_team_id: 'Botafogo',
+    away_team_goals: '1',
+    in_progress: 1,
+  },
+  {
+    id: 46,
+    home_team_id: 'Corinthians',
+    home_team_goals: '1',
+    away_team_id: 'Palmeiras',
+    away_team_goals: '1',
+    in_progress: 1,
+  },
+  {
+    id: 47,
+    home_team_id: 'Grêmio',
+    home_team_goals: '1',
+    away_team_id: 'Santos',
+    away_team_goals: '2',
+    in_progress: 1,
+  },
+  {
+    id: 48,
+    home_team_id: 'Real Brasília',
+    home_team_goals: '1',
+    away_team_id: 'Bahia',
+    away_team_goals: '1',
+    in_progress: 1,
+  },
+];
+
+module.exports = allMatches;
