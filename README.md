@@ -84,12 +84,6 @@ This application is composed of 4 main flows:
 
   - The route must be of type `POST`;
 
-  - It is possible to login with correct data and that, after access, it will be redirected to the game screen.
-
-  - The `/login` endpoint on the backend must not allow access without informing an email on the frontend
-
-  - The `/login` endpoint on the backend must not allow access without entering a password on the frontend
-
   - If the login was successful, the result returned should be similar to the one shown below, with a status http `200`:
 
     ```json
@@ -130,23 +124,17 @@ This application is composed of 4 main flows:
 
   - It must be a `GET` route that receives a `header` with `authorization` parameter, where the token generated at login will be stored;
 
-  - It will be validated in the API that it is not possible to return an object with the type of user, without a token;
-
   - If the token is not informed, the following message must be returned with a `401` status:
 
   ```json
   { "message": "Token not found" }
   ```
 
-  - It will be validated in the API that it is not possible to return an object with the type of user, with an invalid token
-
   - If the informed token is not valid, the following message must be returned with a `401` status:
 
   ```json
   { "message": "Token must be a valid token" }
   ```
-
-  - The evaluator will check if when trying to hit the route with a valid token, it will return the type of user.
 
   The response should be status `200` with an `object` containing the `role` of *user*:
   ```json
@@ -159,8 +147,6 @@ This application is composed of 4 main flows:
 ### 3 - Build the `/matches` endpoint so that the data appears correctly on the front-end match screen
 
 - The route must be a `GET` and returns a list of matches;
-
-- It will be validated that the page will present all match data without any filter.
 
     Return example:
 
@@ -202,8 +188,6 @@ This application is composed of 4 main flows:
 
   - The route must be of type `GET` and return a list of filtered matches;
 
-  - It will be validated that, when choosing the option of matches in progress, all matches in progress will be filtered;
-
   - This request must use `query string` to define the parameter:
     ex: `matches?inProgress=true`
 
@@ -240,8 +224,6 @@ This application is composed of 4 main flows:
     }
   ]
   ```
-
-  - It will be validated that, when choosing the option of finished matches, all finished matches will be filtered;
 
   - This request must use `query string` to define the parameter.
     ex: `matches?inProgress=false`
@@ -286,15 +268,11 @@ This application is composed of 4 main flows:
 
 - The `id` will be received by the URL parameter;
 
-- It will be validated that it is not possible to change a match without a token;
-
 - If the token is not informed, the following message must be returned with a `401` status:
 
   ```json
   { "message": "Token not found" }
   ```
-
-- It will be validated that it is not possible to change a match with an invalid token;
 
 - If the informed token is not valid, the following message must be returned with a `401` status:
 
@@ -315,8 +293,6 @@ This application is composed of 4 main flows:
 - The endpoint must be of type `PATCH`;
 
 - The `id` will be received by the URL parameter;
-
-- It will be validated that it is not possible to change a match without a token;
 
 - If the token is not informed, the following message must be returned with a `401` status:
 
@@ -347,8 +323,6 @@ This application is composed of 4 main flows:
 ### 3.4 - Develop the `/matches` endpoint so that it is possible to register a new match in progress in the database
 
 - The route must be of type `POST` and return the match inserted in the database;
-
-- It will be validated that it is not possible to enter a match without a token;
 
 - If the token is not informed, the following message must be returned with a `401` status:
 
@@ -392,7 +366,7 @@ This application is composed of 4 main flows:
 
 ### 3.5 - Develop the `/matches` endpoint so that it is not possible to insert a match with equal teams or with a team that does not exist in the teams table
 
-  - It will be validated that it is not possible to insert a match in which the `homeTeam` and the `awayTeam` are the same, for example: Barcelona x Barcelona;
+  - It is not possible to insert a match in which the `homeTeam` and the `awayTeam` are the same, for example: Barcelona x Barcelona;
 
   - If this occurs, the following message must be returned with a `422` status:
 
@@ -413,7 +387,7 @@ This application is composed of 4 main flows:
 
 ## Leaderboard Home
 
-### 4.1 - Develop the endpoint `/leaderboard/home` so that it returns information about the performance of the home teams with the following properties: `name`, `totalPoints`, `totalGames`, `totalVictories`, `totalDraws` , `totalLosses`, `goalsFavor` and `goalsOwn`
+### 4.1 - Created the endpoint `/leaderboard/home` so that it returns information about the performance of the home teams
 
  - The endpoint must be of type `GET`;
 
@@ -460,7 +434,7 @@ This application is composed of 4 main flows:
 
 </details>
 
-### 4.2 - Develop the endpoint `/leaderboard/home` so that it is possible to filter the rankings of the home teams in the front-end ranking screen with the initial data from the database, including the properties `goalsBalance` and `efficiency` , in addition to the properties of the previous requirement
+### 4.2 - Created the endpoint `/leaderboard/home` so that it is possible to filter the rankings of the home teams in the front-end 
 
   - The endpoint must be of type `GET`;
 
@@ -667,7 +641,7 @@ This application is composed of 4 main flows:
 ```
 </details>
 
-### 4.3 - Develop the `/leaderboard/home` endpoint so that it is possible to filter the rankings of home teams in the front-end ranking screen, and update the table when inserting the match Corinthians 2 X 1 Internacional
+### 4.3 - Created the `/leaderboard/home` endpoint so that it is possible to filter the rankings of home teams 
 
   - After adding the Corinthians 2 X 1 Internacional match and making the request to the `/leaderboard/home` endpoint, the correct fields and values ​​will be returned.
 
@@ -874,7 +848,7 @@ This application is composed of 4 main flows:
 
 ## Leaderboard away
 
-### 4.4 - Develop the endpoint `/leaderboard/away` so that it returns information on the performance of away teams with the following properties: `name`, `totalPoints`, `totalGames`, `totalVictories`, `totalDraws`, `totalLosses`, ` goalsFavor` and `goalsOwn`
+### 4.4 - Develop the endpoint `/leaderboard/away` so that it returns information on the performance of away teams 
 
  - The endpoint must be of type `GET`;
 
@@ -921,7 +895,7 @@ This application is composed of 4 main flows:
 
 </details>
 
-### 4.5 - Build the `/leaderboard/away` endpoint so that you can filter team rankings when visiting the front-end leaderboard screen, with initial data from the database, including the `goalsBalance` and `efficiency` properties , in addition to the properties of the previous requirement
+### 4.5 - Created the `/leaderboard/away` endpoint so that you can filter team rankings when visiting the front-end leaderboard screen
 
   - The endpoint must be of type `GET`;
 
@@ -1128,7 +1102,7 @@ This application is composed of 4 main flows:
 ```
 </details>
 
-### 4.6 - Develop the endpoint `/leaderboard/away` so that it is possible to filter team rankings when visiting the front-end ranking screen and update the table when inserting the match Corinthians 2 X 1 Internacional
+### 4.6 - Created the endpoint `/leaderboard/away` so that it is possible to filter team rankings when visiting the front-end ranking screen 
 
   - After adding the Corinthians 2 X 1 Internacional match and making the request to the `/leaderboard/away` endpoint, the correct fields and values ​​will be returned.
 
