@@ -120,7 +120,7 @@ This application is composed of 4 main flows:
   - Passwords with valid format, but not registered in the bank;
 
 
-### 2.4 - Develop a validation middleware for the `token`, checking if it is valid, and develop the `/login/role` endpoint in the backend so that it returns the data correctly in the frontend
+### 2.4 - Created a validation middleware for the `token`, checking if it is valid, and develop the `/login/role` 
 
   - It must be a `GET` route that receives a `header` with `authorization` parameter, where the token generated at login will be stored;
 
@@ -184,7 +184,7 @@ This application is composed of 4 main flows:
     ]
     ```
 
-### 3.1 - Develop the `/matches` endpoint so that it is possible to filter only ongoing matches, and also filter only completed matches, on the front-end matches screen
+### 3.1 - Created the `/matches` endpoint so that it is possible to filter only ongoing matches
 
   - The route must be of type `GET` and return a list of filtered matches;
 
@@ -262,11 +262,9 @@ This application is composed of 4 main flows:
   ]
   ```
 
-### 3.2 - Develop the `/matches/:id/finish` endpoint so that it is possible to finish a match in the database
+### 3.2 - Created the `/matches/:id/finish` endpoint so that it is possible to finish a match in the database
 
 - The route must be of type `PATCH`;
-
-- The `id` will be received by the URL parameter;
 
 - If the token is not informed, the following message must be returned with a `401` status:
 
@@ -288,19 +286,15 @@ This application is composed of 4 main flows:
   { "message": "Finished" }
   ```
 
-### 3.3 - Develop the `/matches/:id` endpoint so that it is possible to update matches in progress
+### 3.3 - Created the `/matches/:id` endpoint so that it is possible to update matches in progress
 
 - The endpoint must be of type `PATCH`;
-
-- The `id` will be received by the URL parameter;
 
 - If the token is not informed, the following message must be returned with a `401` status:
 
   ```json
   { "message": "Token not found" }
   ```
-
-- It will be validated that it is not possible to change a match with an invalid token;
 
 - If the informed token is not valid, the following message must be returned with a `401` status:
 
@@ -364,7 +358,7 @@ This application is composed of 4 main flows:
   }
   ```
 
-### 3.5 - Develop the `/matches` endpoint so that it is not possible to insert a match with equal teams or with a team that does not exist in the teams table
+### 3.5 - Created the `/matches` endpoint so that it is not possible to insert a match with equal teams or with a team that does not exist in the teams table
 
   - It is not possible to insert a match in which the `homeTeam` and the `awayTeam` are the same, for example: Barcelona x Barcelona;
 
@@ -438,10 +432,6 @@ This application is composed of 4 main flows:
 
   - The endpoint must be of type `GET`;
 
-  - The request to the endpoint `/leaderboard/home` will return the correct fields and values, considering the initial data of the database;
-
- <details>
-<summary><strong> Return example:</strong></summary> <br/>
 
 ```json
 [
@@ -469,174 +459,7 @@ This application is composed of 4 main flows:
     "goalsBalance": 5,
     "efficiency": "77.78"
   },
-  {
-    "name": "Corinthians",
-    "totalPoints": 6,
-    "totalGames": 2,
-    "totalVictories": 2,
-    "totalDraws": 0,
-    "totalLosses": 0,
-    "goalsFavor": 6,
-    "goalsOwn": 1,
-    "goalsBalance": 5,
-    "efficiency": "100.00"
-  },
-  {
-    "name": "Grêmio",
-    "totalPoints": 6,
-    "totalGames": 2,
-    "totalVictories": 2,
-    "totalDraws": 0,
-    "totalLosses": 0,
-    "goalsFavor": 4,
-    "goalsOwn": 1,
-    "goalsBalance": 3,
-    "efficiency": "100.00"
-  },
-  {
-    "name": "Real Brasília",
-    "totalPoints": 6,
-    "totalGames": 2,
-    "totalVictories": 2,
-    "totalDraws": 0,
-    "totalLosses": 0,
-    "goalsFavor": 2,
-    "goalsOwn": 0,
-    "goalsBalance": 2,
-    "efficiency": "100.00"
-  },
-  {
-    "name": "São Paulo",
-    "totalPoints": 4,
-    "totalGames": 2,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 0,
-    "goalsFavor": 4,
-    "goalsOwn": 1,
-    "goalsBalance": 3,
-    "efficiency": "66.67"
-  },
-  {
-    "name": "Internacional",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 4,
-    "goalsOwn": 6,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Botafogo",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 2,
-    "goalsOwn": 4,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Ferroviária",
-    "totalPoints": 3,
-    "totalGames": 2,
-    "totalVictories": 1,
-    "totalDraws": 0,
-    "totalLosses": 1,
-    "goalsFavor": 3,
-    "goalsOwn": 2,
-    "goalsBalance": 1,
-    "efficiency": "50.00"
-  },
-  {
-    "name": "Napoli-SC",
-    "totalPoints": 2,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 2,
-    "totalLosses": 0,
-    "goalsFavor": 2,
-    "goalsOwn": 2,
-    "goalsBalance": 0,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Cruzeiro",
-    "totalPoints": 1,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 2,
-    "goalsOwn": 3,
-    "goalsBalance": -1,
-    "efficiency": "16.67"
-  },
-  {
-    "name": "Flamengo",
-    "totalPoints": 1,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 2,
-    "goalsBalance": -1,
-    "efficiency": "16.67"
-  },
-  {
-    "name": "Minas Brasília",
-    "totalPoints": 1,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 2,
-    "goalsFavor": 3,
-    "goalsOwn": 6,
-    "goalsBalance": -3,
-    "efficiency": "11.11"
-  },
-  {
-    "name": "Avaí/Kindermann",
-    "totalPoints": 1,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 2,
-    "goalsFavor": 3,
-    "goalsOwn": 7,
-    "goalsBalance": -4,
-    "efficiency": "11.11"
-  },
-  {
-    "name": "São José-SP",
-    "totalPoints": 0,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 3,
-    "goalsFavor": 2,
-    "goalsOwn": 5,
-    "goalsBalance": -3,
-    "efficiency": "0.00"
-  },
-  {
-    "name": "Bahia",
-    "totalPoints": 0,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 3,
-    "goalsFavor": 0,
-    "goalsOwn": 4,
-    "goalsBalance": -4,
-    "efficiency": "0.00"
-  }
+ ...
 ]
 ```
 </details>
@@ -645,8 +468,6 @@ This application is composed of 4 main flows:
 
   - After adding the Corinthians 2 X 1 Internacional match and making the request to the `/leaderboard/home` endpoint, the correct fields and values ​​will be returned.
 
-<details>
-<summary><strong> Expected return: </strong></summary> <br/>
 
 ```json
 [
@@ -674,174 +495,7 @@ This application is composed of 4 main flows:
     "goalsBalance": 6,
     "efficiency": "100.00"
   },
-  {
-    "name": "Palmeiras",
-    "totalPoints": 7,
-    "totalGames": 3,
-    "totalVictories": 2,
-    "totalDraws": 1,
-    "totalLosses": 0,
-    "goalsFavor": 10,
-    "goalsOwn": 5,
-    "goalsBalance": 5,
-    "efficiency": "77.78"
-  },
-  {
-    "name": "Grêmio",
-    "totalPoints": 6,
-    "totalGames": 2,
-    "totalVictories": 2,
-    "totalDraws": 0,
-    "totalLosses": 0,
-    "goalsFavor": 4,
-    "goalsOwn": 1,
-    "goalsBalance": 3,
-    "efficiency": "100.00"
-  },
-  {
-    "name": "Real Brasília",
-    "totalPoints": 6,
-    "totalGames": 2,
-    "totalVictories": 2,
-    "totalDraws": 0,
-    "totalLosses": 0,
-    "goalsFavor": 2,
-    "goalsOwn": 0,
-    "goalsBalance": 2,
-    "efficiency": "100.00"
-  },
-  {
-    "name": "São Paulo",
-    "totalPoints": 4,
-    "totalGames": 2,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 0,
-    "goalsFavor": 4,
-    "goalsOwn": 1,
-    "goalsBalance": 3,
-    "efficiency": "66.67"
-  },
-  {
-    "name": "Internacional",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 4,
-    "goalsOwn": 6,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Botafogo",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 2,
-    "goalsOwn": 4,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Ferroviária",
-    "totalPoints": 3,
-    "totalGames": 2,
-    "totalVictories": 1,
-    "totalDraws": 0,
-    "totalLosses": 1,
-    "goalsFavor": 3,
-    "goalsOwn": 2,
-    "goalsBalance": 1,
-    "efficiency": "50.00"
-  },
-  {
-    "name": "Napoli-SC",
-    "totalPoints": 2,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 2,
-    "totalLosses": 0,
-    "goalsFavor": 2,
-    "goalsOwn": 2,
-    "goalsBalance": 0,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Cruzeiro",
-    "totalPoints": 1,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 2,
-    "goalsOwn": 3,
-    "goalsBalance": -1,
-    "efficiency": "16.67"
-  },
-  {
-    "name": "Flamengo",
-    "totalPoints": 1,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 2,
-    "goalsBalance": -1,
-    "efficiency": "16.67"
-  },
-  {
-    "name": "Minas Brasília",
-    "totalPoints": 1,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 2,
-    "goalsFavor": 3,
-    "goalsOwn": 6,
-    "goalsBalance": -3,
-    "efficiency": "11.11"
-  },
-  {
-    "name": "Avaí/Kindermann",
-    "totalPoints": 1,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 2,
-    "goalsFavor": 3,
-    "goalsOwn": 7,
-    "goalsBalance": -4,
-    "efficiency": "11.11"
-  },
-  {
-    "name": "São José-SP",
-    "totalPoints": 0,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 3,
-    "goalsFavor": 2,
-    "goalsOwn": 5,
-    "goalsBalance": -3,
-    "efficiency": "0.00"
-  },
-  {
-    "name": "Bahia",
-    "totalPoints": 0,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 3,
-    "goalsFavor": 0,
-    "goalsOwn": 4,
-    "goalsBalance": -4,
-    "efficiency": "0.00"
-  }
+ ...
 ]
 ```
 </details>
@@ -852,10 +506,6 @@ This application is composed of 4 main flows:
 
  - The endpoint must be of type `GET`;
 
-  - The request to the endpoint `/leaderboard/home` will return the correct fields and values, considering the initial data of the database;
-
-   <details>
-<summary><strong> Return example: </strong></summary> <br/>
 
 ```json
 [
@@ -899,10 +549,6 @@ This application is composed of 4 main flows:
 
   - The endpoint must be of type `GET`;
 
-  - When making the request to the `/leaderboard/away` endpoint, the correct fields and values ​​will be returned considering the initial data of the database;
-
-<details>
-<summary><strong> Expected return: </strong></summary> <br/>
 
 ```json
 [
@@ -942,162 +588,7 @@ This application is composed of 4 main flows:
     "goalsBalance": 3,
     "efficiency": "100.00"
   },
-  {
-    "name": "São José-SP",
-    "totalPoints": 6,
-    "totalGames": 2,
-    "totalVictories": 2,
-    "totalDraws": 0,
-    "totalLosses": 0,
-    "goalsFavor": 3,
-    "goalsOwn": 1,
-    "goalsBalance": 2,
-    "efficiency": "100.00"
-  },
-  {
-    "name": "São Paulo",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 5,
-    "goalsOwn": 5,
-    "goalsBalance": 0,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Ferroviária",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 4,
-    "goalsOwn": 5,
-    "goalsBalance": -1,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Real Brasília",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 3,
-    "goalsOwn": 4,
-    "goalsBalance": -1,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Grêmio",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 5,
-    "goalsOwn": 7,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Flamengo",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 3,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Avaí/Kindermann",
-    "totalPoints": 3,
-    "totalGames": 2,
-    "totalVictories": 1,
-    "totalDraws": 0,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 1,
-    "goalsBalance": 0,
-    "efficiency": "50.00"
-  },
-  {
-    "name": "Cruzeiro",
-    "totalPoints": 3,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 0,
-    "totalLosses": 2,
-    "goalsFavor": 6,
-    "goalsOwn": 7,
-    "goalsBalance": -1,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Santos",
-    "totalPoints": 2,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 2,
-    "totalLosses": 0,
-    "goalsFavor": 3,
-    "goalsOwn": 3,
-    "goalsBalance": 0,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Bahia",
-    "totalPoints": 2,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 2,
-    "totalLosses": 0,
-    "goalsFavor": 2,
-    "goalsOwn": 2,
-    "goalsBalance": 0,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Minas Brasília",
-    "totalPoints": 1,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 3,
-    "goalsBalance": -2,
-    "efficiency": "16.67"
-  },
-  {
-    "name": "Botafogo",
-    "totalPoints": 0,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 2,
-    "goalsFavor": 1,
-    "goalsOwn": 4,
-    "goalsBalance": -3,
-    "efficiency": "0.00"
-  },
-  {
-    "name": "Napoli-SC",
-    "totalPoints": 0,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 3,
-    "goalsFavor": 1,
-    "goalsOwn": 10,
-    "goalsBalance": -9,
-    "efficiency": "0.00"
-  }
+ ...
 ]
 ```
 </details>
@@ -1106,8 +597,6 @@ This application is composed of 4 main flows:
 
   - After adding the Corinthians 2 X 1 Internacional match and making the request to the `/leaderboard/away` endpoint, the correct fields and values ​​will be returned.
 
-<details>
-<summary><strong> Expected return: </strong></summary> <br/>
 
 ```json
 [
@@ -1147,162 +636,7 @@ This application is composed of 4 main flows:
     "goalsBalance": 2,
     "efficiency": "66.67"
   },
-  {
-    "name": "São José-SP",
-    "totalPoints": 6,
-    "totalGames": 2,
-    "totalVictories": 2,
-    "totalDraws": 0,
-    "totalLosses": 0,
-    "goalsFavor": 3,
-    "goalsOwn": 1,
-    "goalsBalance": 2,
-    "efficiency": "100.00"
-  },
-  {
-    "name": "São Paulo",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 5,
-    "goalsOwn": 5,
-    "goalsBalance": 0,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Ferroviária",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 4,
-    "goalsOwn": 5,
-    "goalsBalance": -1,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Real Brasília",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 3,
-    "goalsOwn": 4,
-    "goalsBalance": -1,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Grêmio",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 5,
-    "goalsOwn": 7,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Flamengo",
-    "totalPoints": 4,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 3,
-    "goalsBalance": -2,
-    "efficiency": "44.44"
-  },
-  {
-    "name": "Avaí/Kindermann",
-    "totalPoints": 3,
-    "totalGames": 2,
-    "totalVictories": 1,
-    "totalDraws": 0,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 1,
-    "goalsBalance": 0,
-    "efficiency": "50.00"
-  },
-  {
-    "name": "Cruzeiro",
-    "totalPoints": 3,
-    "totalGames": 3,
-    "totalVictories": 1,
-    "totalDraws": 0,
-    "totalLosses": 2,
-    "goalsFavor": 6,
-    "goalsOwn": 7,
-    "goalsBalance": -1,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Santos",
-    "totalPoints": 2,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 2,
-    "totalLosses": 0,
-    "goalsFavor": 3,
-    "goalsOwn": 3,
-    "goalsBalance": 0,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Bahia",
-    "totalPoints": 2,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 2,
-    "totalLosses": 0,
-    "goalsFavor": 2,
-    "goalsOwn": 2,
-    "goalsBalance": 0,
-    "efficiency": "33.33"
-  },
-  {
-    "name": "Minas Brasília",
-    "totalPoints": 1,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 1,
-    "totalLosses": 1,
-    "goalsFavor": 1,
-    "goalsOwn": 3,
-    "goalsBalance": -2,
-    "efficiency": "16.67"
-  },
-  {
-    "name": "Botafogo",
-    "totalPoints": 0,
-    "totalGames": 2,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 2,
-    "goalsFavor": 1,
-    "goalsOwn": 4,
-    "goalsBalance": -3,
-    "efficiency": "0.00"
-  },
-  {
-    "name": "Napoli-SC",
-    "totalPoints": 0,
-    "totalGames": 3,
-    "totalVictories": 0,
-    "totalDraws": 0,
-    "totalLosses": 3,
-    "goalsFavor": 1,
-    "goalsOwn": 10,
-    "goalsBalance": -9,
-    "efficiency": "0.00"
-  }
+  ...
 ]
 ```
 </details>
